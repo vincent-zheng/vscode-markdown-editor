@@ -85,7 +85,8 @@
   "scripts": {
     "watch": "foy watch",
     "start": "foy watch",
-    "pub": "foy build && npm version patch && git push origin master --tags && vsce package && vsce publish"
+    "pack": "foy build && vsce package",
+    "pub": "foy build && npm version patch && git push origin master --tags && vsce package && vsce publish && npx ovsx create-namespace <name> -p 5f4914bf-d59b-4fb9-ac0a-b0dac1748eee"
   },
   "devDependencies": {
     "@types/node": "^12.12.0",

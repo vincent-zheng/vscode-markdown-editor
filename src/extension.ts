@@ -21,6 +21,20 @@ export function activate(context: vscode.ExtensionContext) {
     )
   )
 
+  // const disposable = vscode.workspace.onDidOpenTextDocument((document: vscode.TextDocument) => {
+  //   // 输出打开文件的路径和语言 ID
+  //   console.log(`Opened document: ${document.fileName}, Language: ${document.languageId}`);
+
+  //   // 示例：如果打开的是 .myext 文件，显示通知
+  //   if (document.languageId === 'markdown') {
+  //     EditorPanel.createOrShow(context, document.uri)
+  //     // vscode.window.showInformationMessage(`You opened a .myext file: ${document.fileName}`);
+  //   }
+  // });
+
+  // // 将事件订阅添加到上下文，插件卸载时自动清理
+  // context.subscriptions.push(disposable);
+
   context.globalState.setKeysForSync([KeyVditorOptions])
 }
 
@@ -31,7 +45,7 @@ class EditorPanel {
   /**
    * Track the currently panel. Only allow a single panel to exist at a time.
    */
-  public static currentPanel: EditorPanel | undefined
+  public currentPanel: EditorPanel | undefined
 
   public static readonly viewType = 'markdown-editor'
 
@@ -45,14 +59,14 @@ class EditorPanel {
     const column = vscode.window.activeTextEditor
       ? vscode.window.activeTextEditor.viewColumn
       : undefined
-    if (EditorPanel.currentPanel && uri !== EditorPanel.currentPanel?._uri) {
-      EditorPanel.currentPanel.dispose()
-    }
-    // If we already have a panel, show it.
-    if (EditorPanel.currentPanel) {
-      EditorPanel.currentPanel._panel.reveal(column)
-      return
-    }
+    // if (EditorPanel.currentPanel && uri !== EditorPanel.currentPanel?._uri) {
+    //   EditorPanel.currentPanel.dispose()
+    // }
+    // // If we already have a panel, show it.
+    // if (EditorPanel.currentPanel) {
+    //   EditorPanel.currentPanel._panel.reveal(column)
+    //   return
+    // }
     if (!vscode.window.activeTextEditor && !uri) {
       showError(`Did not open markdown file!`)
       return
@@ -82,17 +96,19 @@ class EditorPanel {
     const panel = vscode.window.createWebviewPanel(
       EditorPanel.viewType,
       'markdown-editor',
-      column || vscode.ViewColumn.One,
+      vscode.ViewColumn.One, // 强制在新panel中激活
       EditorPanel.getWebviewOptions(uri)
     )
 
-    EditorPanel.currentPanel = new EditorPanel(
+    const currentPanel = new EditorPanel(
       context,
       panel,
       extensionUri,
       doc,
       uri
     )
+    currentPanel.currentPanel = currentPanel
+    panel.reveal(vscode.ViewColumn.One) // 确保新panel获得焦点
   }
 
   private static getFolders(): vscode.Uri[] {
@@ -110,7 +126,7 @@ class EditorPanel {
       // Enable javascript in the webview
       enableScripts: true,
 
-            localResourceRoots: [vscode.Uri.file("/"), ...this.getFolders()],
+      localResourceRoots: [vscode.Uri.file("/"), ...this.getFolders()],
       retainContextWhenHidden: true,
       enableCommandUris: true,
     }
@@ -193,7 +209,7 @@ class EditorPanel {
               },
               theme:
                 vscode.window.activeColorTheme.kind ===
-                vscode.ColorThemeKind.Dark
+                  vscode.ColorThemeKind.Dark
                   ? 'dark'
                   : 'light',
             })
@@ -293,7 +309,7 @@ class EditorPanel {
   }
 
   public dispose() {
-    EditorPanel.currentPanel = undefined
+    this.currentPanel = undefined
 
     // Clean up our resources
     this._panel.dispose()
