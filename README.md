@@ -20,7 +20,7 @@
 
 ## Install
 
-[https://marketplace.visualstudio.com/items?itemName=vincent.polar-markdown-editor](https://marketplace.visualstudio.com/items?itemName=vincent.polar-markdown-editor)
+[https://marketplace.visualstudio.com/items?itemName=VincentZheng.polar-markdown-editor](https://marketplace.visualstudio.com/items?itemName=VincentZheng.polar-markdown-editor)
 
 ## Supported syntax
 
@@ -74,4 +74,6 @@ MIT
 
 ## Support
 
-If you like this extension make sure to star the repo. I am always looking for new ideas and feedback. In addition, it is possible to [donate via paypal](https://www.paypal.me/zaaack).
+If you like this extension make sure to star the repo. I am always looking for new ideas and feedback. In addition, it is possible to donate via crypto.
+
+![](./op_donate.png)
