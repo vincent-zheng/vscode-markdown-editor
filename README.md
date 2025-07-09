@@ -1,7 +1,5 @@
 # Markdown Editor — A full-featured WYSIWYG editor for markdown
 
-[![badge_title](https://vsmarketplacebadges.dev/version-short/zaaack.markdown-editor.svg)](https://marketplace.visualstudio.com/items?itemName=zaaack.markdown-editor) [![](https://vsmarketplacebadges.dev/installs-short/zaaack.markdown-editor.svg)](https://marketplace.visualstudio.com/items?itemName=zaaack.markdown-editor) [![](https://vsmarketplacebadges.dev/rating-short/zaaack.markdown-editor.svg)](https://marketplace.visualstudio.com/items?itemName=zaaack.markdown-editor)
-
 ## Demo
 
 ![demo](./demo.gif)
@@ -18,10 +16,11 @@
 - Markdown extensions
 - Multiple graph support including KaTeX / Mermaid / Graphviz / ECharts / abc.js(notation) / ...
 - For more usage please see [vditor](https://github.com/Vanessa219/vditor)
+- Add support for plumtuml
 
 ## Install
 
-[https://marketplace.visualstudio.com/items?itemName=zaaack.markdown-editor](https://marketplace.visualstudio.com/items?itemName=zaaack.markdown-editor)
+[https://marketplace.visualstudio.com/items?itemName=vincent.polar-markdown-editor](https://marketplace.visualstudio.com/items?itemName=vincent.polar-markdown-editor)
 
 ## Supported syntax
 
