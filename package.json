@@ -3,7 +3,7 @@
   "displayName": "Polar Markdown Editor(By Polar bear)",
   "icon": "media/logo.png",
   "description": "A full-featured WYSIWYG editor for markdown.",
-  "version": "0.1.23",
+  "version": "0.1.24",
   "publisher": "VincentZheng",
   "private": true,
   "engines": {
