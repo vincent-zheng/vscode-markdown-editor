@@ -100,6 +100,10 @@
     margin: 4px 0; /* Material Design spacing */
 }
 
+.vditor-reset ul, .vditor-reset ol {
+    padding-left: 1em;
+}
+
 .vditor-reset code {
     margin: 0 2px;
     padding: 2px 4px;
