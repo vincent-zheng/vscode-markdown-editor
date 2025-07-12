@@ -3,7 +3,7 @@ import './preload'
 import {
   fileToBase64,
   fixCut,
-  fixDarkTheme,
+  // fixDarkTheme,
   fixLinkClick,
   fixPanelHover,
   handleToolbarClick,
@@ -58,14 +58,14 @@ function initVditor(msg) {
     toolbarConfig: { pin: true },
     ...defaultOptions,
     after() {
-      fixDarkTheme()
+      // fixDarkTheme()
       handleToolbarClick()
       fixTableIr()
       fixPanelHover()
     },
     preview: {
       theme: {
-        current: 'custom-content-theme',
+        current: 'theme',
         path: './theme.css'
       },
       hljs: {
