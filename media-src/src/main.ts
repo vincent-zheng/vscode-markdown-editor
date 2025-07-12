@@ -51,7 +51,7 @@ function initVditor(msg) {
     minHeight: '100%',
     lang,
     value: msg.content,
-    mode: 'ir',
+    mode: 'wysiwyg',
     cache: { enable: false },
     toolbar,
     toolbarConfig: { pin: true },
@@ -62,20 +62,20 @@ function initVditor(msg) {
       fixTableIr()
       fixPanelHover()
     },
-    preview: {
-      render: {
-        codeBlockPreview: (element) => {
-          // 检查代码块语言是否为 plantuml
-          if (element.className.includes('language-plantuml')) {
-            const plantumlServer = 'http://www.plantuml.com/plantuml'; // PlantUML 服务器地址
-            const code = element.querySelector('code').textContent; // 获取代码块内容
-            const encoded = encodeURIComponent(code); // URL 编码
-            const url = `${plantumlServer}/svg/${encoded}`; // 生成 SVG 图表
-            element.innerHTML = `<img src="${url}" alt="PlantUML Diagram" style="max-width: 100%;" />`; // 替换代码块为图像
-          }
-        },
-      },
-    },
+    // preview: {
+    //   render: {
+    //     codeBlockPreview: (element) => {
+    //       // 检查代码块语言是否为 plantuml
+    //       if (element.className.includes('language-plantuml')) {
+    //         const plantumlServer = 'http://www.plantuml.com/plantuml'; // PlantUML 服务器地址
+    //         const code = element.querySelector('code').textContent; // 获取代码块内容
+    //         const encoded = encodeURIComponent(code); // URL 编码
+    //         const url = `${plantumlServer}/svg/${encoded}`; // 生成 SVG 图表
+    //         element.innerHTML = `<img src="${url}" alt="PlantUML Diagram" style="max-width: 100%;" />`; // 替换代码块为图像
+    //       }
+    //     },
+    //   },
+    // },
     input() {
       inputTimer && clearTimeout(inputTimer)
       inputTimer = setTimeout(() => {
