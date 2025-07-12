@@ -31,23 +31,14 @@ body[data-use-vscode-theme-color="1"] .vditor {
   position: relative;
 }
 .vditor-panel {
-  transform: translate(-25px, 0);
-  max-width: 21px;
-  max-height: 21px;
-  overflow: hidden;
   transition: width 0.2s ease-in-out;
+  max-width: none;
+  max-height: none;
+  overflow: visible;
+  transform: translate(0, 0);
 }
 .vditor-panel::after {
-  content: '...';
-  width: 21px;
-  height: 21px;
-  position: absolute;
-  left: 0;
-  top: 0;
-  background-color: white;
-  color: black;
-  text-align: center;
-  font-family: none;
+  display: none;
 }
 .vditor-panel:hover,
 .vditor-panel_hover {

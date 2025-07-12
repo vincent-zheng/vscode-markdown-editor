@@ -50,8 +50,8 @@ export const toolbar = [
 		tipPosition: 'e',
 		toolbar: [
 			// 'both',
-			'code-theme',
-			'content-theme',
+			// 'code-theme',
+			// 'content-theme',
 			'outline',
 			// 'preview',
 			{

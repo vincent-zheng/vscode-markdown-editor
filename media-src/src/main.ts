@@ -18,6 +18,7 @@ import { t, lang } from './lang'
 import { toolbar } from './toolbar'
 import { fixTableIr } from './fix-table-ir'
 import './main.css'
+import './theme.css'
 
 function initVditor(msg) {
   console.log('msg', msg)
@@ -61,6 +62,16 @@ function initVditor(msg) {
       handleToolbarClick()
       fixTableIr()
       fixPanelHover()
+    },
+    preview: {
+      theme: {
+        current: 'custom-content-theme',
+        path: './theme.css'
+      },
+      hljs: {
+        style: 'xcode',
+        lineNumber: true
+      }
     },
     // preview: {
     //   render: {
